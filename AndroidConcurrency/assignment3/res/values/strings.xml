@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Download Image</string>
+    
+    <string name="enter_url">Enter URL</string>
+    <string name="download_image">Download Image</string>
+
+</resources>
