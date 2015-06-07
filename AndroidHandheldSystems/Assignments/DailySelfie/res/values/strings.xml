@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">DailySelfie</string>
+    <string name="action_camera">Camera</string>
+	<string name="capture_cancelled">Capture was cancelled by user</string>
+	<string name="capture_failed">Capture failed</string>
+	<string name="img_desc">The Daily Selfie</string>
+	<string name="name_selfie">Name:</string>
+	<string name="date_selfie">Date:</string>
+</resources>

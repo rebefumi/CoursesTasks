@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+     <ImageView
+        android:id="@+id/selfie"
+        android:layout_width="120dp"
+        android:layout_height="100dp"
+        android:contentDescription="@string/img_desc"
+       />
+         <LinearLayout
+        android:id="@+id/data_selfie"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" 
+        android:orientation="vertical"
+        android:layout_toRightOf="@id/selfie"
+        android:padding="10dp"
+        >
+
+        <TextView
+            android:id="@+id/name_selfie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" 
+            android:text="@string/name_selfie"
+            android:singleLine="true"
+            android:ellipsize="end"/>
+
+        <TextView
+            android:id="@+id/date_selfie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/date_selfie" 
+            android:singleLine="true"
+            android:ellipsize="end"/>
+
+        <TextView
+            android:id="@+id/uri_selfie"
+            android:layout_width="wrap_content"
+            android:layout_height= "wrap_content"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:visibility="gone"/>
+        
+    </LinearLayout>
+
+</RelativeLayout>
