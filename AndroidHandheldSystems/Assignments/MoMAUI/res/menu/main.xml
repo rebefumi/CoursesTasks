@@ -1,0 +1,9 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.rebecagarcia.modernartui.MainActivity" >
+
+	    <item android:id="@+id/more_info"
+	          android:orderInCategory="100"
+	          android:title="@string/information"/>
+
+</menu>
