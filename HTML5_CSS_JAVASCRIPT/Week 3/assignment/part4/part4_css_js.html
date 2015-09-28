@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Maching Game">
+	<meta name="keywords" content="HTML,CSS,JavaScript">
+	<meta name="author" content="Rebeca Garc&iacute;a">
+	<title>Maching Game Part 4</title>
+	<style type="text/css">
+		body {
+			background-color: BlanchedAlmond;
+		}
+
+		img{
+			position:absolute;
+		}
+
+		.content{
+			width: 100%;
+		}
+
+		.game-content{
+			width: 100%;
+			margin: auto;
+		}
+
+		#leftSide{
+			position:absolute;
+			width:500px; 
+			height:500px;
+			background-color: white;
+		}
+
+		#rightSide{
+			position:absolute;
+			width:500px; 
+			height:500px;
+			left: 500px; 
+		    border-left: 1px solid black;
+		    background-color: white;
+
+		}
+		</style>
+
+	</head>
+	<body onload="Game.initGame(5);">
+		<div class="content">
+			<div class="head">
+				<h1>Marching Game</h1>
+
+				<div>Click on the extra smiling face on the left</div>
+			</div>
+			<div class="game-content">
+				<div id="leftSide">
+				</div>
+				<div id="rightSide">
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+		var Game =(function (){
+			var numberOfFaces = undefined;
+			var faces = undefined;
+			var theLeftSide = document.getElementById("leftSide");
+			var theRightSide = document.getElementById("rightSide");
+			var theBody = document.getElementsByTagName("body")[0];
+
+			var  generateFaces = function (){
+				var i=0;
+				var img;
+				var leftSideImages;
+				removeAllFaces (theLeftSide);
+				removeAllFaces (theRightSide);
+				for (i; i<numberOfFaces; i++){
+					img = document.createElement("img");
+					img.src="smile.png";
+					img.style.top = randomNumber (400) + "px";
+					img.style.left = randomNumber (400) + "px";
+					theLeftSide.appendChild(img);
+
+					leftSideImages = theLeftSide.cloneNode(true);
+				}
+
+				cloneRightSide(leftSideImages);
+				onClickListener ();
+				bodyListener ();
+			};
+
+			var cloneRightSide = function (leftImages){
+				leftImages.removeChild(leftImages.lastChild);
+				rightSide.appendChild(leftImages);
+			};
+
+			var randomNumber = function (max){
+				return Math.floor(Math.random() * max);
+			};
+
+			var onClickListener = function (){
+				theLeftSide.lastChild.onclick = function nextLevel(event){
+				        event.stopPropagation();
+				        numberOfFaces += faces;
+				        generateFaces();
+				};
+			};
+
+			var bodyListener = function (){
+				theBody.onclick = function gameOver() {
+				    alert("Game Over!");
+				    theBody.onclick = null;
+				    theLeftSide.lastChild.onclick = null;
+				    newGame();
+				}; 
+			};
+
+			var newGame = function (){
+				var res = confirm("Do you want to star a new game?");
+				if (res === true) {
+				   init(faces);
+				}else{
+				   removeAllFaces (theLeftSide);
+				   removeAllFaces (theRightSide);
+				}
+			};
+
+			var removeAllFaces = function (myNode){
+				while (myNode.firstChild) {
+				    myNode.removeChild(myNode.firstChild);
+				}
+			};
+
+			var init = function (numFaces){
+				faces = numFaces;
+				numberOfFaces = faces;
+				generateFaces();
+			};
+
+			return {
+				initGame: init
+			}
+		})(); 
+		</script>
+	</body>
+</html>
+
